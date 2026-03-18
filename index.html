@@ -74,43 +74,47 @@
     <section id="categories" class="categories section">
         <div class="container reveal">
             <h2 class="section-title text-center">Our Collections</h2>
-            <div class="category-grid">
-                <div class="category-card" onclick="filterCategory('Cakes')">
-                    <div class="category-img">
-                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop" alt="Cakes" loading="lazy">
+            <div class="carousel-wrapper">
+                <button class="carousel-arrow left-arrow" aria-label="Scroll left"><i class="ph ph-caret-left"></i></button>
+                <div class="category-grid carousel-track" id="categoryTrack">
+                    <div class="category-card" onclick="filterCategory('Cakes')">
+                        <div class="category-img">
+                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop" alt="Cakes" loading="lazy">
+                        </div>
+                        <div class="category-info">
+                            <h3>Cakes</h3>
+                            <span>Explore</span>
+                        </div>
                     </div>
-                    <div class="category-info">
-                        <h3>Cakes</h3>
-                        <span>Explore</span>
+                    <div class="category-card" onclick="filterCategory('Pastries')">
+                        <div class="category-img">
+                            <img src="https://images.unsplash.com/photo-1603532648955-039310d9ed75?q=80&w=600&auto=format&fit=crop" alt="Pastries" loading="lazy">
+                        </div>
+                        <div class="category-info">
+                            <h3>Pastries</h3>
+                            <span>Explore</span>
+                        </div>
+                    </div>
+                    <div class="category-card" onclick="filterCategory('Breads')">
+                        <div class="category-img">
+                            <img src="https://images.unsplash.com/photo-1598373182133-52452f7691ef?q=80&w=600&auto=format&fit=crop" alt="Breads" loading="lazy">
+                        </div>
+                        <div class="category-info">
+                            <h3>Breads</h3>
+                            <span>Explore</span>
+                        </div>
+                    </div>
+                    <div class="category-card" onclick="filterCategory('Cookies')">
+                        <div class="category-img">
+                            <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600&auto=format&fit=crop" alt="Cookies" loading="lazy">
+                        </div>
+                        <div class="category-info">
+                            <h3>Cookies</h3>
+                            <span>Explore</span>
+                        </div>
                     </div>
                 </div>
-                <div class="category-card" onclick="filterCategory('Pastries')">
-                    <div class="category-img">
-                        <img src="https://images.unsplash.com/photo-1603532648955-039310d9ed75?q=80&w=600&auto=format&fit=crop" alt="Pastries" loading="lazy">
-                    </div>
-                    <div class="category-info">
-                        <h3>Pastries</h3>
-                        <span>Explore</span>
-                    </div>
-                </div>
-                <div class="category-card" onclick="filterCategory('Breads')">
-                    <div class="category-img">
-                        <img src="https://images.unsplash.com/photo-1598373182133-52452f7691ef?q=80&w=600&auto=format&fit=crop" alt="Breads" loading="lazy">
-                    </div>
-                    <div class="category-info">
-                        <h3>Breads</h3>
-                        <span>Explore</span>
-                    </div>
-                </div>
-                <div class="category-card" onclick="filterCategory('Cookies')">
-                    <div class="category-img">
-                        <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600&auto=format&fit=crop" alt="Cookies" loading="lazy">
-                    </div>
-                    <div class="category-info">
-                        <h3>Cookies</h3>
-                        <span>Explore</span>
-                    </div>
-                </div>
+                <button class="carousel-arrow right-arrow" aria-label="Scroll right"><i class="ph ph-caret-right"></i></button>
             </div>
         </div>
     </section>
@@ -130,8 +134,12 @@
             
             <div id="noProductsMessage" class="hidden text-center mt-3">No products found matching your search.</div>
 
-            <div class="product-grid" id="productGrid">
-                <!-- Products injected via JS -->
+            <div class="carousel-wrapper">
+                <button class="carousel-arrow left-arrow" aria-label="Scroll left"><i class="ph ph-caret-left"></i></button>
+                <div class="product-grid carousel-track" id="productGrid">
+                    <!-- Products injected via JS -->
+                </div>
+                <button class="carousel-arrow right-arrow" aria-label="Scroll right"><i class="ph ph-caret-right"></i></button>
             </div>
         </div>
     </section>
@@ -171,37 +179,52 @@
     <section class="testimonials section bg-light">
         <div class="container reveal">
             <h2 class="section-title text-center">What Our Patrons Say</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+            <div class="carousel-wrapper">
+                <button class="carousel-arrow left-arrow" aria-label="Scroll left"><i class="ph ph-caret-left"></i></button>
+                <div class="testimonial-grid carousel-track" id="testimonialTrack">
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                        </div>
+                        <p>"The Classic Chocolate Truffle cake is out of this world. You can taste the premium quality in every single bite. A true culinary masterpiece."</p>
+                        <div class="author">
+                            <h4>Eleanor Wright</h4>
+                            <span>Food Critic</span>
+                        </div>
                     </div>
-                    <p>"The Classic Chocolate Truffle cake is out of this world. You can taste the premium quality in every single bite. A true culinary masterpiece."</p>
-                    <div class="author">
-                        <h4>Eleanor Wright</h4>
-                        <span>Food Critic</span>
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                        </div>
+                        <p>"I have tried croissants in Paris, but Lumière's butter croissants perfectly rival them. The flakiness and buttery richness are absolute perfection."</p>
+                        <div class="author">
+                            <h4>James Mitchell</h4>
+                            <span>Loyal Customer</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                        </div>
+                        <p>"We ordered a bespoke cake for our anniversary, and the attention to detail was astonishing. It was as beautiful to look at as it was to eat."</p>
+                        <div class="author">
+                            <h4>Sophie & Mark</h4>
+                            <span>Event Planners</span>
+                        </div>
+                    </div>
+                    <!-- Added an extra testimonial to explicitly show sliding logic is working beautifully -->
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                        </div>
+                        <p>"Unbelievable quality and presentation. Their macarons are simply divine, melting in your mouth while retaining that perfect delicate crunch."</p>
+                        <div class="author">
+                            <h4>David Chen</h4>
+                            <span>Local Guide</span>
+                        </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
-                    </div>
-                    <p>"I have tried croissants in Paris, but Lumière's butter croissants perfectly rival them. The flakiness and buttery richness are absolute perfection."</p>
-                    <div class="author">
-                        <h4>James Mitchell</h4>
-                        <span>Loyal Customer</span>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
-                    </div>
-                    <p>"We ordered a bespoke cake for our anniversary, and the attention to detail was astonishing. It was as beautiful to look at as it was to eat."</p>
-                    <div class="author">
-                        <h4>Sophie & Mark</h4>
-                        <span>Event Planners</span>
-                    </div>
-                </div>
+                <button class="carousel-arrow right-arrow" aria-label="Scroll right"><i class="ph ph-caret-right"></i></button>
             </div>
         </div>
     </section>
