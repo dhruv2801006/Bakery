@@ -110,6 +110,7 @@ const noProductsMessage = document.getElementById("noProductsMessage");
 function init() {
     renderProducts();
     setupEventListeners();
+    setupCarousels();
     setupIntersectionObserver();
     checkTheme();
 }
@@ -296,6 +297,72 @@ function renderCart() {
     cartSubtotal.textContent = `₹${subtotal.toFixed(2)}`;
     cartTax.textContent = `₹${tax.toFixed(2)}`;
     cartTotalSum.textContent = `₹${total.toFixed(2)}`;
+}
+
+// Carousel Drag and Scroll
+function setupCarousels() {
+    const wrappers = document.querySelectorAll('.carousel-wrapper');
+    
+    wrappers.forEach(wrapper => {
+        const track = wrapper.querySelector('.carousel-track');
+        const leftArrow = wrapper.querySelector('.left-arrow');
+        const rightArrow = wrapper.querySelector('.right-arrow');
+        
+        if (!track) return;
+
+        // Arrow clicks
+        if (leftArrow) {
+            leftArrow.addEventListener('click', () => {
+                const itemWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + 32 : 300; // approx +gap
+                track.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+            });
+        }
+        
+        if (rightArrow) {
+            rightArrow.addEventListener('click', () => {
+                const itemWidth = track.firstElementChild ? track.firstElementChild.offsetWidth + 32 : 300;
+                track.scrollBy({ left: itemWidth, behavior: 'smooth' });
+            });
+        }
+
+        // Mouse Drag
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        track.addEventListener('mousedown', (e) => {
+            isDown = true;
+            track.classList.add('active');
+            startX = e.pageX - track.offsetLeft;
+            scrollLeft = track.scrollLeft;
+            
+            // Temporarily disable smooth scroll & snapping for natural drag
+            track.style.scrollBehavior = 'auto';
+            track.style.scrollSnapType = 'none';
+        });
+
+        track.addEventListener('mouseleave', () => {
+            isDown = false;
+            track.classList.remove('active');
+            track.style.scrollBehavior = 'smooth';
+            track.style.scrollSnapType = 'x mandatory';
+        });
+
+        track.addEventListener('mouseup', () => {
+            isDown = false;
+            track.classList.remove('active');
+            track.style.scrollBehavior = 'smooth';
+            track.style.scrollSnapType = 'x mandatory';
+        });
+
+        track.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - track.offsetLeft;
+            const walk = (x - startX) * 2; // scroll speed multiplier
+            track.scrollLeft = scrollLeft - walk;
+        });
+    });
 }
 
 // Setup Event Listeners
